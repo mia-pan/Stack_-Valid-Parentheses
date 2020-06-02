@@ -43,3 +43,37 @@ var isValid = function(s) {
 //    return 3 
 // }
 // }
+
+isValid = s => {
+    let stackArray = []
+    for(i = 0; i < s.length; i ++){
+        if (s[i] == "(" || s[i] == "{" || s[i] == "["){
+            stackArray.push(s[i])
+        }else if ((char == " (" && s[i] == ")") || 
+        (char == "{" && s[i] == "}") ||
+        (char == "[" && s[i] == "]")){
+            stackArray.pop()
+        }else return false 
+    }
+    return stackArray.length ? false : true
+}
+
+
+////
+
+isValid = s => {
+    let map = {
+        ")" : "(",
+        "}" : "{",
+        "]" : "["
+    }
+    let stackArray = [];
+    for(let i = 0; i < s.length, i ++){
+        if (s[i] === "(" || s[i] === "[" || s[i] === "{"){
+            stackArray.push(s[i]);
+        }else if (stackArray[stackArray.length - 1] === map[s[i]]) {
+            stackArray.pop()
+        }else return false
+    }
+    return stackArray.length? false : true 
+}
